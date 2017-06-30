@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProjectInfo>
+    <totalNumberOfClasses>1</totalNumberOfClasses>
+    <totalNumberOfTestableClasses>1</totalNumberOfTestableClasses>
+    <overallCoverage>0.93</overallCoverage>
+    <generatedTestSuites>
+        <fullNameOfTargetClass>edu.osu.cs362.Stack</fullNameOfTargetClass>
+        <fullNameOfTestSuite>edu.osu.cs362.Stack_ESTest</fullNameOfTestSuite>
+        <totalEffortInSeconds>97</totalEffortInSeconds>
+        <coverageTestSuites>
+            <id>0</id>
+            <fullPathOfTestSuite>D:\CS362\Eclisp Projects\assignment-1\cs362\.evosuite\tmp_2017_06_29_21_58_39\tests\edu\osu\cs362\Stack_ESTest.java</fullPathOfTestSuite>
+            <coverage>
+                <criterion>LineCoverage</criterion>
+                <coverageValue>0.97</coverageValue>
+            </coverage>
+            <coverage>
+                <criterion>BranchCoverage</criterion>
+                <coverageValue>0.89</coverageValue>
+            </coverage>
+            <coverage>
+                <criterion>ExceptionCoverage</criterion>
+                <coverageValue>1.0</coverageValue>
+            </coverage>
+            <coverage>
+                <criterion>WeakMutationScore</criterion>
+                <coverageValue>1.0</coverageValue>
+            </coverage>
+            <coverage>
+                <criterion>OutputCoverage</criterion>
+                <coverageValue>0.71</coverageValue>
+            </coverage>
+            <coverage>
+                <criterion>MethodCoverage</criterion>
+                <coverageValue>1.0</coverageValue>
+            </coverage>
+            <coverage>
+                <criterion>MethodNoExceptionCoverage</criterion>
+                <coverageValue>1.0</coverageValue>
+            </coverage>
+            <coverage>
+                <criterion>CBranchCoverage</criterion>
+                <coverageValue>0.83</coverageValue>
+            </coverage>
+            <numberOfTests>11</numberOfTests>
+            <totalNumberOfStatements>103</totalNumberOfStatements>
+            <effortInSeconds>97</effortInSeconds>
+        </coverageTestSuites>
+    </generatedTestSuites>
+</ProjectInfo>
