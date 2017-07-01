@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="11" failures="2" name="edu.osu.cs362.Stack_ESTest" time="0.111" errors="3" skipped="0">
+<testsuite tests="11" failures="2" name="edu.osu.cs362.Stack_ESTest" time="0.057" errors="3" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin"/>
@@ -65,8 +65,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test03" time="0.032"/>
-  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test02" time="0.048">
+  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test03" time="0.013"/>
+  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test02" time="0.018">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at edu.osu.cs362.Stack$Node.access$100(Stack.java:55)
 	at edu.osu.cs362.Stack.peek(Stack.java:122)
@@ -104,10 +104,10 @@
 	at java.lang.Thread.run(Thread.java:748)
 </error>
   </testcase>
-  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test04" time="0.005"/>
-  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test10" time="0.001"/>
-  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test01" time="0.005"/>
-  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test00" time="0.006">
+  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test04" time="0.006"/>
+  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test10" time="0.002"/>
+  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test01" time="0.004"/>
+  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test00" time="0.003">
     <failure message="Expecting exception: TooManyResourcesException" type="java.lang.AssertionError">java.lang.AssertionError: Expecting exception: TooManyResourcesException
 	at org.junit.Assert.fail(Assert.java:88)
 	at edu.osu.cs362.Stack_ESTest.test00(Stack_ESTest.java:35)
@@ -143,7 +143,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test06" time="0.003">
+  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test06" time="0.002">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at edu.osu.cs362.Stack$Node.access$100(Stack.java:55)
 	at edu.osu.cs362.Stack.peek(Stack.java:122)
@@ -162,6 +162,6 @@
 	at java.lang.Thread.run(Thread.java:748)
 </error>
   </testcase>
-  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test09" time="0.003"/>
-  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test08" time="0.003"/>
+  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test09" time="0.002"/>
+  <testcase classname="edu.osu.cs362.Stack_ESTest" name="test08" time="0.002"/>
 </testsuite>
