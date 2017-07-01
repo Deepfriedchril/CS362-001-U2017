@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: edu.osu.cs362.Stack_ESTest
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 2, Errors: 3, Skipped: 0, Time elapsed: 0.641 sec <<< FAILURE!
-test02(edu.osu.cs362.Stack_ESTest)  Time elapsed: 0.006 sec  <<< ERROR!
+Tests run: 11, Failures: 2, Errors: 3, Skipped: 0, Time elapsed: 4.861 sec <<< FAILURE!
+test02(edu.osu.cs362.Stack_ESTest)  Time elapsed: 0.048 sec  <<< ERROR!
 java.lang.NullPointerException
 	at edu.osu.cs362.Stack$Node.access$100(Stack.java:55)
 	at edu.osu.cs362.Stack.peek(Stack.java:122)
@@ -18,9 +18,9 @@ java.lang.NullPointerException
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.lang.Thread.run(Thread.java:745)
+	at java.lang.Thread.run(Thread.java:748)
 
-test05(edu.osu.cs362.Stack_ESTest)  Time elapsed: 0.007 sec  <<< ERROR!
+test05(edu.osu.cs362.Stack_ESTest)  Time elapsed: 0.002 sec  <<< ERROR!
 java.lang.NullPointerException
 	at edu.osu.cs362.Stack$Node.access$100(Stack.java:55)
 	at edu.osu.cs362.Stack.peek(Stack.java:122)
@@ -36,9 +36,9 @@ java.lang.NullPointerException
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.lang.Thread.run(Thread.java:745)
+	at java.lang.Thread.run(Thread.java:748)
 
-test00(edu.osu.cs362.Stack_ESTest)  Time elapsed: 0.003 sec  <<< FAILURE!
+test00(edu.osu.cs362.Stack_ESTest)  Time elapsed: 0.006 sec  <<< FAILURE!
 java.lang.AssertionError: Expecting exception: TooManyResourcesException
 	at org.junit.Assert.fail(Assert.java:88)
 	at edu.osu.cs362.Stack_ESTest.test00(Stack_ESTest.java:35)
@@ -53,9 +53,9 @@ java.lang.AssertionError: Expecting exception: TooManyResourcesException
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.lang.Thread.run(Thread.java:745)
+	at java.lang.Thread.run(Thread.java:748)
 
-test07(edu.osu.cs362.Stack_ESTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+test07(edu.osu.cs362.Stack_ESTest)  Time elapsed: 0.003 sec  <<< FAILURE!
 java.lang.AssertionError: Expecting exception: TooManyResourcesException
 	at org.junit.Assert.fail(Assert.java:88)
 	at edu.osu.cs362.Stack_ESTest.test07(Stack_ESTest.java:145)
@@ -70,9 +70,9 @@ java.lang.AssertionError: Expecting exception: TooManyResourcesException
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.lang.Thread.run(Thread.java:745)
+	at java.lang.Thread.run(Thread.java:748)
 
-test06(edu.osu.cs362.Stack_ESTest)  Time elapsed: 0.002 sec  <<< ERROR!
+test06(edu.osu.cs362.Stack_ESTest)  Time elapsed: 0.003 sec  <<< ERROR!
 java.lang.NullPointerException
 	at edu.osu.cs362.Stack$Node.access$100(Stack.java:55)
 	at edu.osu.cs362.Stack.peek(Stack.java:122)
@@ -88,5 +88,5 @@ java.lang.NullPointerException
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.lang.Thread.run(Thread.java:745)
+	at java.lang.Thread.run(Thread.java:748)
 
