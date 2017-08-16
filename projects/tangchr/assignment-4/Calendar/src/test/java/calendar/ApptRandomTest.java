@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import org.junit.Test;
+import org.junit.*;
 
 
 
@@ -51,18 +51,16 @@ public class ApptRandomTest {
    /**
      * Generate Random Tests that tests Appt Class.
      */
-	 @Test
+	 @Ignore @Test
 	  public void radnomtest()  throws Throwable  {
 
-		 long startTime = Calendar.getInstance().getTimeInMillis();
-		 long elapsed = Calendar.getInstance().getTimeInMillis() - startTime;
-
-         int min = -100;
-         int max = 100;
-		 int minmonth = -14;
-         int maxmonth = 30;
-
-		 System.out.println("Start testing...");
+    	long startTime = Calendar.getInstance().getTimeInMillis();
+    	long elapsed = Calendar.getInstance().getTimeInMillis() - startTime;
+        int min = -100;
+        int max = 100;
+    	int minmonth = -14;
+        int maxmonth = 30;
+    	System.out.println("Start testing...");
 		 
 		try{ 
 			for (int iteration = 0; elapsed < TestTimeout; iteration++) {
@@ -70,7 +68,6 @@ public class ApptRandomTest {
 				Random random = new Random(randomseed);
 				
                 int startYear = ValuesGenerator.RandInt(random);
-                
                 int startHour   = ThreadLocalRandom.current().nextInt(min, max);
                 int startMinute = ThreadLocalRandom.current().nextInt(min, max);
                 int startDay    = ThreadLocalRandom.current().nextInt(min, max);
