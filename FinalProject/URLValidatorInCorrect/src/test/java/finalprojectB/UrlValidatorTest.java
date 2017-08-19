@@ -38,31 +38,178 @@ public class UrlValidatorTest extends TestCase {
 
    
    
-   public void testManualTest()
-   {
+   public void testManualTestgood() throws Throwable {
 	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
-	   System.out.println(urlVal.isValid("http://www.amazon.com"));
-	   
-	   
-   }
+	   // Expected to be valid
+       assertTrue(urlVal.isValid("http://www.amazon.com/"));
+       assertTrue(urlVal.isValid("http://www.google.com"));
+       assertTrue(urlVal.isValid("http://www.gmail.com"));
+       assertTrue(urlVal.isValid("https://www.tutorialspoint.com/junit/junit_test_framework.htm"));
+       assertTrue(urlVal.isValid("http://oregonstate.edu/"));
+       assertTrue(urlVal.isValid("http://www.oregon.gov/odot/dmv/Pages/index.aspx"));
+       assertTrue(urlVal.isValid("https://www.fightforthefuture.org/"));
+       assertTrue(urlVal.isValid("http://192.168.0.1:25565"));
+       assertTrue(urlVal.isValid("ftp://192.0.0.1"));
+
+       //urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_LOCAL_URLS);
+       assertTrue(urlVal.isValid("h3t://testtest.com"));
+       assertTrue(urlVal.isValid("file:///C:/folder/testing/"));
+    }
+    
+    public void testManualTestExpectedbad() throws Throwable {
+        UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
+        // Expected to be bad
+        assertFalse(urlVal.isValid("http://wwwcom"));
+        assertFalse(urlVal.isValid("htp://badaddress.gov"));
+        assertFalse(urlVal.isValid("http//badaddress.org"));
+        assertFalse(urlVal.isValid("http:/misingaslash.com"));
+        assertFalse(urlVal.isValid("//noscheme.com"));
+        assertFalse(urlVal.isValid(""));
+        assertFalse(urlVal.isValid("http://somethin.g"));
+    }
    
    
-   public void testYourFirstPartition()
-   {
-	   
-   }
+    public void testYourFirstPartition() {
+        String schemeGood[] = {
+                                "http://",
+                                "file:///",
+                                "https://",
+                                "ftp://",
+                                "h3t://",
+                                ""
+                            };
+
+        String schemeBad[] = {
+                                "htp://",
+                                "file://",
+                                "http:/",
+                                "http//",
+                                "://",
+                            };
+
+        String authorityGood[] = {
+                                    "www.google.com",
+                                    "192.168.1.1",
+                                    "255.255.255.255",
+                                    "test.com",
+                                    "test.gov",
+                                    "test.org"
+                                };
+
+        String authorityBad[] = {
+                                    "1.2.3.4.5",
+                                    "test",
+                                    "test.ing",
+                                    ""
+                                };
+        String portsGood[] = {
+                                ":80",
+                                ":25565",
+                                ":8080",
+                                "",
+                            };
+
+        String portsBad[] = {
+                                "1a2b3",
+                                "-1000",
+                                "123456789"
+                            };
+
+        String pathsGood[] = {
+                                "/users/",
+                                "/testing",
+                                "/tests",
+                                ""
+                            };
+
+        String pathsBad[] = {
+                                "//",
+                                "/../",
+                                "/../tests",
+                                "test/",
+                                "//testing/"
+                            };
+        
+
+    }   
    
    public void testYourSecondPartition(){
 	   
    }
    
    
-   public void testIsValid()
-   {
-	   for(int i = 0;i<10000;i++)
-	   {
-		   
-	   }
+   public void testIsValid() {
+        String schemeGood[] = {
+                                "http://",
+                                "file:///",
+                                "https://",
+                                "ftp://",
+                                "h3t://",
+                                ""
+                            };
+
+        String schemeBad[] = {
+                                "htp://",
+                                "file://",
+                                "http:/",
+                                "http//",
+                                "://",
+                            };
+
+        String authorityGood[] = {
+                                    "www.google.com",
+                                    "192.168.1.1",
+                                    "255.255.255.255",
+                                    "test.com",
+                                    "test.gov",
+                                    "test.org"
+                                };
+
+        String authorityBad[] = {
+                                    "1.2.3.4.5",
+                                    "test",
+                                    "test.ing",
+                                    ""
+                                };
+        String portsGood[] = {
+                                ":80",
+                                ":25565",
+                                ":8080",
+                                "",
+                            };
+
+        String portsBad[] = {
+                                "1a2b3",
+                                "-1000",
+                                "123456789"
+                            };
+
+        String pathsGood[] = {
+                                "/users/",
+                                "/testing",
+                                "/tests",
+                                ""
+                            };
+
+        String pathsBad[] = {
+                                "//",
+                                "/../",
+                                "/../tests",
+                                "test/",
+                                "//testing/"
+                            };
+
+        UrlValidator curUrl = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);  
+	    
+        for(int i = 0; i < scheme.length; i++) {
+		    for (int j = 0; j < authorityGood.lenght; j++){
+                try {
+                    assertTrue(curUrl.isValid(schemeGood[ThreadLocalRrandom.nextInt()]))
+                }
+            }
+	    }
+
+
    }
    
    public void testAnyOtherUnitTest()
