@@ -21,7 +21,6 @@ import junit.framework.TestCase;
 
 
 
-
 /**
  * Performs Validation Test for url validations.
  *
@@ -68,8 +67,6 @@ public class UrlValidatorTest extends TestCase {
         assertFalse(urlVal.isValid("http://somethin.g"));
     }
    
-   
-    public void testYourFirstPartition() {
         String schemeGood[] = {
                                 "http://",
                                 "file:///",
@@ -93,7 +90,11 @@ public class UrlValidatorTest extends TestCase {
                                     "255.255.255.255",
                                     "test.com",
                                     "test.gov",
-                                    "test.org"
+                                    "test.org",
+                                    "somewhere.ru",
+                                    "german.de",
+                                    "taco.mx",
+                                    "fish.se"
                                 };
 
         String authorityBad[] = {
@@ -103,7 +104,7 @@ public class UrlValidatorTest extends TestCase {
                                     ""
                                 };
         String portsGood[] = {
-                                ":80",
+                                "",
                                 ":25565",
                                 ":8080",
                                 "",
@@ -129,83 +130,111 @@ public class UrlValidatorTest extends TestCase {
                                 "test/",
                                 "//testing/"
                             };
-        
-
-    }   
-   
-   public void testYourSecondPartition(){
-	   
-   }
-   
    
    public void testIsValid() {
-        String schemeGood[] = {
-                                "http://",
-                                "file:///",
-                                "https://",
-                                "ftp://",
-                                "h3t://",
-                                ""
-                            };
+        UrlValidator curUrl = new UrlValidator(null, null, 0);  
+	    String tempString;
+        int fail = 0;
+        int partition = 0;
+        int loop1, loop2, loop3;
 
-        String schemeBad[] = {
-                                "htp://",
-                                "file://",
-                                "http:/",
-                                "http//",
-                                "://",
-                            };
+        for(int i = 0; i < 4; i++) {
+		    switch (i){
+                case 0: //Scheme is changed only
+                    System.out.println("\nTesting BAD Scheme");
+                    for (partition = 0; partition < schemeBad.length-1; partition++){
+                        for (loop1 = 0; loop1 < authorityGood.length-1; loop1++){
+                            for (loop2 = 0; loop2 < portsGood.length-1; loop2++){
+                                //for (loop3 = 0; loop3 < pathsGood.length-1; loop3++){
+                                    tempString = (
+                                        schemeBad[partition] +
+                                        authorityGood[loop1] +
+                                        portsGood[loop2] 
+                                        //pathsGood[loop3]
+                                        );
+                                    try{
+                                        assertFalse(curUrl.isValid(tempString));
+                                    } catch (AssertionError e) {
+                                        fail++;
+                                        System.out.println("Should be FALSE: " + tempString);
+                                    }
+                                //}
+                            }
+                        }
+                    }
+                    break;
 
-        String authorityGood[] = {
-                                    "www.google.com",
-                                    "192.168.1.1",
-                                    "255.255.255.255",
-                                    "test.com",
-                                    "test.gov",
-                                    "test.org"
-                                };
+                case 1: // authority is changed
+                    System.out.println("\nTesting BAD authority");
+                    for (partition = 0; partition < schemeGood.length-1; partition++){
+                        for (loop1 = 0; loop1 < authorityBad.length-1; loop1++){
+                            for (loop2 = 0; loop2 < portsGood.length-1; loop2++){
+                                //for (loop3 = 0; loop3 < pathsGood.length-1; loop3++){
+                                    tempString = (
+                                        schemeGood[partition] +
+                                        authorityBad[loop1] +
+                                        portsGood[loop2] 
+                                        //pathsGood[loop3]
+                                        );
+                                    try{
+                                        assertFalse(curUrl.isValid(tempString));
+                                    } catch (AssertionError e) {
+                                        fail++;
+                                        System.out.println("Should be FALSE: " + tempString);
+                                    }
+                                //}
+                            }
+                        }
+                    }
+                    break;
 
-        String authorityBad[] = {
-                                    "1.2.3.4.5",
-                                    "test",
-                                    "test.ing",
-                                    ""
-                                };
-        String portsGood[] = {
-                                ":80",
-                                ":25565",
-                                ":8080",
-                                "",
-                            };
-
-        String portsBad[] = {
-                                "1a2b3",
-                                "-1000",
-                                "123456789"
-                            };
-
-        String pathsGood[] = {
-                                "/users/",
-                                "/testing",
-                                "/tests",
-                                ""
-                            };
-
-        String pathsBad[] = {
-                                "//",
-                                "/../",
-                                "/../tests",
-                                "test/",
-                                "//testing/"
-                            };
-
-        UrlValidator curUrl = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);  
-	    
-        for(int i = 0; i < scheme.length; i++) {
-		    for (int j = 0; j < authorityGood.lenght; j++){
-                try {
-                    assertTrue(curUrl.isValid(schemeGood[ThreadLocalRrandom.nextInt()]))
-                }
+                case 2: // ports is changed
+                    System.out.println("\nTesting BAD ports");
+                    for (partition = 0; partition < schemeGood.length-1; partition++){
+                        for (loop1 = 0; loop1 < authorityGood.length-1; loop1++){
+                            for (loop2 = 0; loop2 < portsBad.length-1; loop2++){
+                                //for (loop3 = 0; loop3 < pathsGood.length-1; loop3++){
+                                    tempString = (
+                                        schemeGood[partition] +
+                                        authorityGood[loop1] +
+                                        portsBad[loop2] 
+                                        //pathsGood[loop3]
+                                        );
+                                    try{
+                                        assertFalse(curUrl.isValid(tempString));
+                                    } catch (AssertionError e) {
+                                        fail++;
+                                        System.out.println("Should be FALSE: " + tempString);
+                                    }
+                                //}
+                            }
+                        }
+                    }
+                    break;
+                
+                case 3: // All Good
+                    System.out.println("\nTesting known Good Combos");
+                    for (partition = 0; partition < schemeGood.length-1; partition++){
+                        for (loop1 = 0; loop1 < authorityGood.length-1; loop1++){
+                            for (loop2 = 0; loop2 < portsGood.length-1; loop2++){
+                                //for (loop3 = 0; loop3 < pathsGood.length-1; loop3++){
+                                    tempString = (
+                                        schemeGood[partition] +
+                                        authorityGood[loop1] +
+                                        portsGood[loop2] 
+                                        //pathsGood[loop3]
+                                        );
+                                    try{
+                                        assertTrue(curUrl.isValid(tempString));
+                                    } catch (AssertionError e) {
+                                        fail++;
+                                        System.out.println("Should be TRUE: " + tempString);
+                                    }
+                                //}
+                            }
+                        }
+                    }
+                    break;
             }
 	    }
 
