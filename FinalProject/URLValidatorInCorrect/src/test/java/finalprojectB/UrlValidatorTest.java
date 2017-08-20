@@ -40,7 +40,7 @@ public class UrlValidatorTest extends TestCase {
    public void testManualTestgood() throws Throwable {
 	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
 	   // Expected to be valid
-       assertTrue(urlVal.isValid("http://www.amazon.com/"));
+       assertTrue(urlVal.isValid("http://www.amazon.ru/"));
        assertTrue(urlVal.isValid("http://www.google.com"));
        assertTrue(urlVal.isValid("http://www.gmail.com"));
        assertTrue(urlVal.isValid("https://www.tutorialspoint.com/junit/junit_test_framework.htm"));
@@ -130,6 +130,19 @@ public class UrlValidatorTest extends TestCase {
                                 "test/",
                                 "//testing/"
                             };
+
+        String quaryGood[] = {
+                                "?action=view",
+                                "?action=edit&mode=up",
+                                ""
+                            };
+
+        String quaryBad[] = {
+                                "?iamafakequary",
+                                "?",
+                                "??",
+                                "???"
+                            };
    
    public void testIsValid() {
         UrlValidator curUrl = new UrlValidator(null, null, 0);  
@@ -138,19 +151,20 @@ public class UrlValidatorTest extends TestCase {
         int partition = 0;
         int loop1, loop2, loop3;
 
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < 5; i++) {
 		    switch (i){
                 case 0: //Scheme is changed only
                     System.out.println("\nTesting BAD Scheme");
                     for (partition = 0; partition < schemeBad.length-1; partition++){
                         for (loop1 = 0; loop1 < authorityGood.length-1; loop1++){
                             for (loop2 = 0; loop2 < portsGood.length-1; loop2++){
-                                //for (loop3 = 0; loop3 < pathsGood.length-1; loop3++){
+                                for (loop3 = 0; loop3 < quaryGood.length-1; loop3++){
                                     tempString = (
                                         schemeBad[partition] +
                                         authorityGood[loop1] +
-                                        portsGood[loop2] 
+                                        portsGood[loop2] +
                                         //pathsGood[loop3]
+                                        quaryGood[loop3]
                                         );
                                     try{
                                         assertFalse(curUrl.isValid(tempString));
@@ -158,7 +172,7 @@ public class UrlValidatorTest extends TestCase {
                                         fail++;
                                         System.out.println("Should be FALSE: " + tempString);
                                     }
-                                //}
+                                }
                             }
                         }
                     }
@@ -169,11 +183,12 @@ public class UrlValidatorTest extends TestCase {
                     for (partition = 0; partition < schemeGood.length-1; partition++){
                         for (loop1 = 0; loop1 < authorityBad.length-1; loop1++){
                             for (loop2 = 0; loop2 < portsGood.length-1; loop2++){
-                                //for (loop3 = 0; loop3 < pathsGood.length-1; loop3++){
+                                for (loop3 = 0; loop3 < quaryGood.length-1; loop3++){
                                     tempString = (
                                         schemeGood[partition] +
                                         authorityBad[loop1] +
-                                        portsGood[loop2] 
+                                        portsGood[loop2] +
+                                        quaryGood[loop3]
                                         //pathsGood[loop3]
                                         );
                                     try{
@@ -182,7 +197,7 @@ public class UrlValidatorTest extends TestCase {
                                         fail++;
                                         System.out.println("Should be FALSE: " + tempString);
                                     }
-                                //}
+                                }
                             }
                         }
                     }
@@ -193,11 +208,12 @@ public class UrlValidatorTest extends TestCase {
                     for (partition = 0; partition < schemeGood.length-1; partition++){
                         for (loop1 = 0; loop1 < authorityGood.length-1; loop1++){
                             for (loop2 = 0; loop2 < portsBad.length-1; loop2++){
-                                //for (loop3 = 0; loop3 < pathsGood.length-1; loop3++){
+                                for (loop3 = 0; loop3 < quaryGood.length-1; loop3++){
                                     tempString = (
                                         schemeGood[partition] +
                                         authorityGood[loop1] +
-                                        portsBad[loop2] 
+                                        portsBad[loop2] +
+                                        quaryGood[loop3]
                                         //pathsGood[loop3]
                                         );
                                     try{
@@ -206,22 +222,49 @@ public class UrlValidatorTest extends TestCase {
                                         fail++;
                                         System.out.println("Should be FALSE: " + tempString);
                                     }
-                                //}
+                                }
                             }
                         }
                     }
                     break;
-                
-                case 3: // All Good
+
+                case 3: // bad quary
+                    System.out.println("\nTesting with bad quary");
+                    for (partition = 0; partition < schemeGood.length-1; partition++){
+                        for (loop1 = 0; loop1 < authorityGood.length-1; loop1++){
+                            for (loop2 = 0; loop2 < portsGood.length-1; loop2++){
+                                for (loop3 = 0; loop3 < quaryBad.length-1; loop3++){
+                                    tempString = (
+                                        schemeGood[partition] +
+                                        authorityGood[loop1] +
+                                        portsGood[loop2] +
+                                        quaryBad[loop3]
+                                        //pathsGood[loop3]
+                                        );
+                                    try{
+                                        assertFalse(curUrl.isValid(tempString));
+                                    } catch (AssertionError e) {
+                                        fail++;
+                                        System.out.println("Should be FALSE: " + tempString);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break;
+
+
+                case 4: // All Good
                     System.out.println("\nTesting known Good Combos");
                     for (partition = 0; partition < schemeGood.length-1; partition++){
                         for (loop1 = 0; loop1 < authorityGood.length-1; loop1++){
                             for (loop2 = 0; loop2 < portsGood.length-1; loop2++){
-                                //for (loop3 = 0; loop3 < pathsGood.length-1; loop3++){
+                                for (loop3 = 0; loop3 < quaryGood.length-1; loop3++){
                                     tempString = (
                                         schemeGood[partition] +
                                         authorityGood[loop1] +
-                                        portsGood[loop2] 
+                                        portsGood[loop2] +
+                                        quaryGood[loop3]
                                         //pathsGood[loop3]
                                         );
                                     try{
@@ -230,27 +273,14 @@ public class UrlValidatorTest extends TestCase {
                                         fail++;
                                         System.out.println("Should be TRUE: " + tempString);
                                     }
-                                //}
+                                }
                             }
                         }
                     }
                     break;
             }
 	    }
-
-
+        if (fail > 0) fail();
    }
-   
-   public void testAnyOtherUnitTest()
-   {
-	   
-   }
-   /**
-    * Create set of tests by taking the testUrlXXX arrays and
-    * running through all possible permutations of their combinations.
-    *
-    * @param testObjects Used to create a url.
-    */
-   
-
+///////////////////////
 }
